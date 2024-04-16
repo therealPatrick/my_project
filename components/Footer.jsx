@@ -13,6 +13,7 @@ const Footer = () => {
                 className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4"
             >
                 <div className="mb-4 md:mb-0">
+                    <Link href="/"></Link>
                     <Image src={logo} alt="Logo" className="h-8 w-auto" />
                 </div>
                 {/* <div */}
