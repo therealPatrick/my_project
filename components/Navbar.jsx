@@ -66,7 +66,6 @@ const Navbar = () => {
                                 >
                                     Home
                                 </Link>
-
                                 <Link
                                     href='/properties'
                                     className={`${pathname === '/properties' ? 'bg-black' : ''
