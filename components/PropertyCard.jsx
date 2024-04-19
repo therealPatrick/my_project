@@ -5,8 +5,6 @@ import { FaBed, FaBath, FaRulerCombined, FaMoneyBill, FaMapMarker } from 'react-
 
 
 
-
-
 const PropertyCard = ({ property }) => {
     const getRateDisplay = () => {
         const { rates } = property;
