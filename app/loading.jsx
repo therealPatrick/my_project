@@ -7,6 +7,7 @@ const override = {
     margin: '100px auto'
 }
 
+// loading spinner animation goes here!
 const LoadingPage = ({ loading }) => {
     return (
         <ClipLoader

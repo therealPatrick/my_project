@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/assets/images/logo.png';
 
-
+// footer function goes here 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
