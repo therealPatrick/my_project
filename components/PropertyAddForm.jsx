@@ -16,7 +16,7 @@ const PropertyAddForm = () => {
         beds: '3',
         baths: '2',
         square_feet: '1800',
-        amenities: [],
+        amenities: ['free Parking'],
         rates: {
             weekly: '',
             monthly: '2000',
@@ -397,6 +397,8 @@ const PropertyAddForm = () => {
                             id="weekly_rate"
                             name="rates.weekly"
                             className="border rounded w-full py-2 px-3"
+                            value={fields.rates.weekly}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="flex items-center">
@@ -406,6 +408,8 @@ const PropertyAddForm = () => {
                             id="monthly_rate"
                             name="rates.monthly"
                             className="border rounded w-full py-2 px-3"
+                            value={fields.rates.monthly}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="flex items-center">
@@ -415,6 +419,8 @@ const PropertyAddForm = () => {
                             id="nightly_rate"
                             name="rates.nightly"
                             className="border rounded w-full py-2 px-3"
+                            value={fields.rates.nightly}
+                            onChange={handleChange}
                         />
                     </div>
                 </div>
@@ -432,6 +438,8 @@ const PropertyAddForm = () => {
                     name="seller_info.name."
                     className="border rounded w-full py-2 px-3"
                     placeholder="Name"
+                    value={fields.seller_info.name}
+                    onChange={handleChange}
                 />
             </div>
             <div className="mb-4">
@@ -447,6 +455,8 @@ const PropertyAddForm = () => {
                     className="border rounded w-full py-2 px-3"
                     placeholder="Email address"
                     required
+                    value={fields.seller_info.email}
+                    onChange={handleChange}
                 />
             </div>
             <div className="mb-4">
@@ -461,6 +471,8 @@ const PropertyAddForm = () => {
                     name="seller_info.phone"
                     className="border rounded w-full py-2 px-3"
                     placeholder="Phone"
+                    value={fields.seller_info.phone}
+                    onChange={handleChange}
                 />
             </div>
 
@@ -475,6 +487,7 @@ const PropertyAddForm = () => {
                     className="border rounded w-full py-2 px-3"
                     accept="image/*"
                     multiple
+                    onChange={handleImageChange}
                 />
             </div>
 
