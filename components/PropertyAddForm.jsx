@@ -30,7 +30,27 @@ const PropertyAddForm = () => {
         images: [],
     })
 
-    const handleChange = () => { }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        // check if nested property
+        if (name.includes('.')) {
+            const [outerkey, innerkey] = name.split(('.'));
+
+            setFields((prevFields) => ({
+                ...prevFields,
+                [outerkey]: {
+                    ...prevFields[outerkey],
+                    [innerkey]: value
+                }
+            }));
+        } else {
+            // not nested 
+            setFields((prevFields) => ({
+                ...prevFields,
+                [name]: value
+            }));
+        }
+    }
     const handleAmenitiesChange = () => { }
     const handleImageChange = () => { }
 
