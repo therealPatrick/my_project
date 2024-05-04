@@ -51,8 +51,42 @@ const PropertyAddForm = () => {
             }));
         }
     }
-    const handleAmenitiesChange = () => { }
-    const handleImageChange = () => { }
+    const handleAmenitiesChange = (e) => {
+        const { value, checked } = e.target;
+
+        // clone the current array
+        const updatedAmentities = [...fields.amenities];
+
+        if (checked) {
+            // add value to array
+            updatedAmentities.push(value)
+        } else {
+            // remoove value from array
+            const index = updatedAmentities.indexOf(value);
+            if (index !== -1) {
+                updatedAmentities.splice(index, 1);
+            }
+        }
+        // update state with updated array 
+        setFields((prevFields) => ({
+            ...prevFields,
+            amenities: updatedAmentities,
+        }))
+    }
+    const handleImageChange = (e) => {
+        const { files } = e.target;
+        //  clone images array
+        const updatedImages = [...fields.images];
+        // add new files to the array
+        for (const file of files) {
+            updatedImages.push(file);
+        }
+        // update state with array of images
+        setFields((prevFields) => ({
+            ...prevFields,
+            images: updatedImages,
+        }))
+    };
 
     useEffect(() => {
         setMounted(true);
