@@ -1,5 +1,8 @@
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/utils/authOptions";
+
 
 // GET  /api/properties
 export const GET = async (request) => {
@@ -17,6 +20,14 @@ export const GET = async (request) => {
 
 export const POST = async (request) => {
     try {
+        await connectDB();
+        const session = await getServerSession(authOptions);
+
+        if (!session) {
+            return new Response('unauthorized', { status: 401 });
+        }
+        const userId = session.user.id;
+
         const formData = await request.formData();
 
         // Access all values from amenties and images
@@ -49,12 +60,10 @@ export const POST = async (request) => {
                 email: formData.get('seller_info.email'),
                 phone: formData.get('seller_info.phone')
             },
+            owner: userId,
             images,
         };
         console.log(propertyData);
-
-
-
 
 
         return new Response(JSON.stringify({ message: 'Success' }),
